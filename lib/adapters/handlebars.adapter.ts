@@ -2,7 +2,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as handlebars from 'handlebars';
-import * as inlineCss from 'inline-css';
+// import * as inlineCss from 'inline-css';
 import * as glob from 'glob';
 import { get } from 'lodash';
 import { HelperDeclareSpec } from 'handlebars';
@@ -18,8 +18,8 @@ export class HandlebarsAdapter implements TemplateAdapter {
   } = {};
 
   private config: TemplateAdapterConfig = {
-    inlineCssOptions: { url: ' ' },
-    inlineCssEnabled: true,
+    // inlineCssOptions: { url: ' ' },
+    // inlineCssEnabled: true,
   };
 
   constructor(helpers?: HelperDeclareSpec, config?: TemplateAdapterConfig) {
@@ -104,16 +104,16 @@ export class HandlebarsAdapter implements TemplateAdapter {
       },
     );
 
-    if (this.config.inlineCssEnabled) {
-      inlineCss(rendered, this.config.inlineCssOptions)
-        .then((html) => {
-          mail.data.html = html;
-          return callback();
-        })
-        .catch(callback);
-    } else {
+    // if (this.config.inlineCssEnabled) {
+    //   inlineCss(rendered, this.config.inlineCssOptions)
+    //     .then((html) => {
+    //       mail.data.html = html;
+    //       return callback();
+    //     })
+    //     .catch(callback);
+    // } else {
       mail.data.html = rendered;
       return callback();
-    }
+    // }
   }
 }
