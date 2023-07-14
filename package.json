@@ -52,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "emitter": "^0.0.5",
     "glob": "8.1.0",
     "inline-css": "4.0.2",
     "mjml": "^4.13.0",
